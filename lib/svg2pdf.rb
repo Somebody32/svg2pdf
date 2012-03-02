@@ -117,8 +117,8 @@ module Svg2pdf
     def setup_options(options)
       # TODO: check working_dir, output_name, etc
       @options = options
-      @options[:output_name] += '-' + SecureRandom.hex(16) unless @options[:output_name]
-      @options[:output_file] = File.join(@options[:working_dir], @options[:output_name] + '.' + @mode.to_s) unless @options[:output_file]
+      @options[:output_name] += '-' + SecureRandom.hex(16)
+      @options[:output_file] ||= File.join(@options[:working_dir], @options[:output_name] + '.' + @mode.to_s)
     end
 
     def perform_checks
